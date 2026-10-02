@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>祝肖莉生日快乐</title>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: radial-gradient(circle at 50% 40%, #2b1055 0%, #7597de 45%, #1e3c72 100%);
+    font-family: "KaiTi", "STKaiti", "Microsoft YaHei", sans-serif;
+    position: relative;
+  }
+
+  /* 星空 */
+  .stars {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .star {
+    position: absolute;
+    background: #fff;
+    border-radius: 50%;
+    animation: twinkle 3s infinite ease-in-out;
+  }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.2; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.3); }
+  }
+
+  /* 标题 */
+  .title {
+    position: absolute;
+    top: 14%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 40px;
+    font-weight: bold;
+    color: #ffd86b;
+    letter-spacing: 10px;
+    padding-left: 10px;
+    text-shadow:
+      0 0 10px rgba(255, 216, 107, 0.8),
+      0 0 30px rgba(255, 120, 60, 0.6),
+      0 0 60px rgba(255, 80, 120, 0.4);
+    z-index: 10;
+    opacity: 0;
+    animation: titleIn 2s ease-out 0.4s forwards;
+  }
+
+  @keyframes titleIn {
+    0% { opacity: 0; transform: translate(-50%, -40px) scale(0.6); }
+    100% { opacity: 1; transform: translate(-50%, 0) scale(1); }
+  }
+
+  .sub {
+    position: absolute;
+    top: 24%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    color: #fff;
+    letter-spacing: 6px;
+    padding-left: 6px;
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+    z-index: 10;
+    opacity: 0;
+    animation: fadeUp 2s ease-out 1.2s forwards;
+  }
+
+  @keyframes fadeUp {
+    0% { opacity: 0; transform: translate(-50%, 20px); }
+    100% { opacity: 1; transform: translate(-50%, 0); }
+  }
+
+  /* 蛋糕 */
+  .cake-scene {
+    position: absolute;
+    bottom: 18%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 240px;
+    height: 260px;
+    z-index: 5;
+  }
+
+  .plate {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 220px;
+    height: 24px;
+    background: linear-gradient(180deg, #fff 0%, #b8c5db 100%);
+    border-radius: 50%;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  }
+
+  .cake-bottom {
+    position: absolute;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 180px;
+    height: 90px;
+    background: linear-gradient(180deg, #ff9a9e 0%, #fad0c4 45%, #a18cd1 100%);
+    border-radius: 14px;
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.4), 0 10px 25px rgba(0, 0, 0, 0.35);
+    animation: cakeUp 1.6s ease-out 0.6s both;
+  }
+
+  .cake-top {
+    position: absolute;
+    bottom: 98px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 130px;
+    height: 64px;
+    background: linear-gradient(180deg, #fbc2eb 0%, #a6c1ee 100%);
+    border-radius: 12px;
+    box-shadow: inset 0 0 16px rgba(255, 255, 255, 0.45), 0 8px 20px rgba(0, 0, 0, 0.3);
+    animation: cakeUp 1.8s ease-out 0.8s both;
+  }
+
+  .cream {
+    position: absolute;
+    top: -8px;
+    left: 0;
+    width: 100%;
+    height: 16px;
+    background: linear-gradient(180deg, #fff 0%, #ffd6f0 100%);
+    border-radius: 50%;
+  }
+
+  /* 蜡烛 */
+  .candle {
+    position: absolute;
+    bottom: 160px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 44px;
+    background: repeating-linear-gradient(
+      180deg,
+      #ff4f4f 0 8px,
+      #ffd86b 8px 16px
+    );
+    border-radius: 4px;
+    z-index: 6;
+    animation: cakeUp 2s ease-out 1s both;
+  }
+
+  @keyframes cakeUp {
+    0% { opacity: 0; transform: translate(-50%, 40px) scale(0.8); }
+    100% { opacity: 1; transform: translate(-50%, 0) scale(1); }
+  }
+
+  /* 火焰 */
+  .flame {
+    position: absolute;
+    bottom: 204px;
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    width: 20px;
+    height: 36px;
+    background: radial-gradient(circle at 50% 70%, #fff7c2 0%, #ffd24a 28%, #ff8a1f 62%, #ff4f2b 100%);
+    border-radius: 50% 50% 50% 50% / 62% 62% 40% 40%;
+    filter: blur(0.3px);
+    opacity: 0;
+    z-index: 7;
+    transform-origin: bottom center;
+    animation: flameLight 1.4s ease-out 1.6s forwards, flameFlicker 0.4s infinite alternate 2.8s;
+  }
+
+  @keyframes flameLight {
+    0% { opacity: 0; transform: translateX(-50%) scale(0); }
+    60% { opacity: 1; transform: translateX(-50%) scale(1.3); }
+    100% { opacity: 1; transform: translateX(-50%) scale(1); }
+  }
+
+  @keyframes flameFlicker {
+    0% { transform: translateX(-50%) scale(1) rotate(-2deg); }
+    100% { transform: translateX(-50%) scale(1.14) rotate(2deg); }
+  }
+
+  /* 光晕 */
+  .glow {
+    position: absolute;
+    bottom: 190px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, rgba(255, 180, 70, 0.55) 0%, rgba(255, 120, 30, 0.25) 40%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0;
+    z-index: 5;
+    animation: glowPulse 1.6s ease-out 1.8s forwards, glowPulse 1.4s infinite alternate 3.4s;
+  }
+
+  @keyframes glowPulse {
+    0% { opacity: 0; transform: translateX(-50%) scale(0.5); }
+    100% { opacity: 1; transform: translateX(-50%) scale(1); }
+  }
+
+  /* 爱心 */
+  .heart {
+    position: absolute;
+    bottom: -40px;
+    color: #ff4f81;
+    font-size: 22px;
+    animation: rise linear forwards;
+    z-index: 8;
+    text-shadow: 0 0 10px rgba(255, 79, 129, 0.8);
+  }
+
+  @keyframes rise {
+    0% { transform: translateY(0) rotate(0); opacity: 0; }
+    10% { opacity: 1; }
+    100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+  }
+
+  /* 气球 */
+  .balloon {
+    position: absolute;
+    bottom: -60px;
+    width: 34px;
+    height: 44px;
+    border-radius: 50%;
+    animation: rise linear forwards;
+    z-index: 7;
+    box-shadow: inset -6px -6px 10px rgba(0, 0, 0, 0.25);
+  }
+
+  .balloon::after {
+    content: "";
+    position: absolute;
+    bottom: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 18px;
+    background: rgba(255, 255, 255, 0.4);
+  }
+
+  /* 祝福文字 */
+  .wish {
+    position: absolute;
+    top: 36%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    color: #fff;
+    letter-spacing: 4px;
+    padding-left: 4px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+    z-index: 10;
+    opacity: 0;
+    animation: fadeUp 2s ease-out 2.4s forwards;
+    text-align:center;
+  }
+
+  .wish span {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(12px);
+    animation: letterIn 0.6s ease-out forwards;
+  }
+
+  @keyframes letterIn {
+    0% { opacity: 0; transform: translateY(12px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  /* 礼花粒子 */
+  .particle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9;
+  }
+
+  @keyframes burst {
+    0% { transform: translate(0, 0) scale(1); opacity: 1; }
+    100% { transform: translate(var(--tx), var(--ty)) scale(0); opacity: 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="stars" id="stars"></div>
+<div class="glow"></div>
+<div class="flame"></div>
+
+<div class="title">祝肖莉生日快乐</div>
+<div class="sub">🎂 8月15日 · HAPPY BIRTHDAY 🎂</div>
+<div class="wish" id="wish"></div>
+
+<div class="cake-scene">
+  <div class="cake-top"><div class="cream"></div></div>
+  <div class="cake-bottom"><div class="cream"></div></div>
+  <div class="candle"></div>
+  <div class="plate"></div>
+</div>
+
+<script>
+  // 生成星空
+  const stars = document.getElementById("stars");
+  for (let i = 0; i < 120; i++) {
+    const s = document.createElement("div");
+    s.className = "star";
+    const size = Math.random() * 2.5 + 1;
+    s.style.width = size + "px";
+    s.style.height = size + "px";
+    s.style.left = Math.random() * 100 + "vw";
+    s.style.top = Math.random() * 100 + "vh";
+    s.style.animationDelay = Math.random() * 3 + "s";
+    s.style.animationDuration = (Math.random() * 2 + 2) + "s";
+    stars.appendChild(s);
+  }
+
+  // 逐字祝福（肖莉专属）
+  const wishText = "亲爱的肖莉，愿你岁岁欢喜，万事胜意✨";
+  const wishEl = document.getElementById("wish");
+  wishText.split("").forEach((ch, i) => {
+    const span = document.createElement("span");
+    span.textContent = ch;
+    span.style.animationDelay = (2.6 + i * 0.12) + "s";
+    wishEl.appendChild(span);
+  });
+
+  // 爱心升起
+  function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.textContent = ["❤", "💛", "💜", "💙", "✨"][Math.floor(Math.random() * 5)];
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (Math.random() * 18 + 18) + "px";
+    heart.style.animationDuration = (Math.random() * 4 + 5) + "s";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 10000);
+  }
+
+  // 气球升起
+  function createBalloon() {
+    const balloon = document.createElement("div");
+    balloon.className = "balloon";
+    const colors = ["#ff4f81", "#ffd86b", "#4f8cff", "#b54fff", "#6cff9a"];
+    balloon.style.background = colors[Math.floor(Math.random() * colors.length)];
+    balloon.style.left = Math.random() * 90 + 5 + "vw";
+    balloon.style.animationDuration = (Math.random() * 5 + 6) + "s";
+    document.body.appendChild(balloon);
+    setTimeout(() => balloon.remove(), 12000);
+  }
+
+  // 礼花爆发
+  function burst(x, y) {
+    const colors = ["#ff4f81", "#ffd86b", "#4f8cff", "#b54fff", "#6cff9a", "#ffffff"];
+    for (let i = 0; i < 40; i++) {
+      const p = document.createElement("div");
+      p.className = "particle";
+      p.style.left = x + "px";
+      p.style.top = y + "px";
+      p.style.background = colors[Math.floor(Math.random() * colors.length)];
+      const angle = (Math.PI * 2 * i) / 40;
+      const distance = Math.random() * 120 + 80;
+      p.style.setProperty("--tx", Math.cos(angle) * distance + "px");
+      p.style.setProperty("--ty", Math.sin(angle) * distan
